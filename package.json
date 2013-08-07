@@ -14,5 +14,9 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/severeon/git-chrome-node/issues"
+  },
+  "dependencies": {
+    "underscore": "~1.5.1",
+    "express": "~3.3.4"
   }
 }
