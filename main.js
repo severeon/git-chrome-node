@@ -14,6 +14,6 @@ fs.readdir( './routes', function(err, files) {
   });
 });
 
-app.listen( process.argv[2] || 3000, function() {
-  console.log( '`main.js` listening on port ' +( process.argv[2] || 3000 )+ '' );
+app.listen( process.argv[2] || 8000, function() {
+  console.log( '`main.js` listening on port ' +( process.argv[2] || 8000 )+ '' );
 });
