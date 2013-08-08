@@ -1,4 +1,4 @@
-var app = require( 'express' ).express();
+var app = require( 'express' )();
 var fs = require('fs');
 var _ = require('underscore');
 
@@ -14,5 +14,5 @@ fs.readdir( './routes', function(err, files) {
 });
 
 app.listen( process.argv[2] || 3000, function() {
-  console.log( 'Listening on port ' +( process.argv[2] || 3000 )+ '' );
+  console.log( '`main.js` listening on port ' +( process.argv[2] || 3000 )+ '' );
 });
