@@ -1,6 +1,10 @@
-var app = require( 'express' )();
+var express = require( 'express' ),
+    app = express();
+
 var fs = require('fs');
 var _ = require('underscore');
+
+app.use( express.bodyParser() );
 
 app.get('/', function(req, res) {  res.send( "Local server is running.  Might I suggest calling some simple /api routes?" );  });
 
