@@ -6,10 +6,11 @@ app.get('/', function(req, res) {  res.send( "Local server is running.  Might I 
 
 
 fs.readdir( './routes', function(err, files) {
-  console.log('Getting Routes');
-
   _.each(files, function(file, fIdx) {
+
+    console.log('Loading route: ' + file);
     require('./routes/' + file)(app);
+  
   });
 });
 
