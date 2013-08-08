@@ -4,17 +4,20 @@ module.exports = function( app ) {
   var path = 'api';
   var routes = { get: {}, post: {} };
 
-  routes.get[''] = function(req, res, next) {
-    res.json({great: 'success'});
+  var GIT_REPOS = [];
+
+  routes.get['list'] = function(req, res, next) {
+    res.json(GIT_REPOS);
   };
 
+  routes.post['repo'] = function(req, res, next) {
+    GIT_REPOS.push( req.body || {} );
+  };
 
-  for (var routeIndex in route) {
-    var method = route[routeIndex];
-    for (var route in method) {
-
-    }
-  }
+  // Handles incorrect API routes.
+  var non_route = function(req, res, next) { res.json({ 'error': 'Unsupported API route.'}); };
+  routes.get['*'] = non_route;
+  routes.get[''] = non_route;
 
 
   _.each(routes, function( method, methodName) {
