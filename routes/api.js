@@ -6,12 +6,17 @@ module.exports = function( app ) {
 
   var GIT_REPOS = [];
 
-  routes.get['list'] = function(req, res, next) {
+  routes.get['list-repos'] = function(req, res, next) {
     res.json(GIT_REPOS);
   };
 
-  routes.post['repo'] = function(req, res, next) {
-    GIT_REPOS.push( req.body || {} );
+  routes.post['add-repo'] = function(req, res, next) {
+    if (!req.body || !Object.keys( req.body ).length ) {
+      res.json({ error : 'No repo details received!'});
+    }
+
+    GIT_REPOS.push( req.body );
+    res.json({ success : 'Repo added' });
   };
 
   // Handles incorrect API routes.
